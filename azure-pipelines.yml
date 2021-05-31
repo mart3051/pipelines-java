@@ -28,8 +28,10 @@ steps:
     reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
     failIfCoverageEmpty: true
 - task: CopyFiles@2
-  displayName: Copy Build Artifacts
   inputs:
-    Contents: > 
-          target/*.jar
-    TargetFolder: $(build.artifactstagingdirectory)/SERVICE_NAME_VALUE
+    contents: '**/target/**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
