@@ -31,5 +31,5 @@ steps:
   displayName: Copy Build Artifacts
   inputs:
     Contents: > 
-          $(System.DefaultWorkingDirectory)/target/*.jar
+          target/*.jar
     TargetFolder: $(build.artifactstagingdirectory)/SERVICE_NAME_VALUE
