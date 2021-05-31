@@ -27,3 +27,9 @@ steps:
     summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
     reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
     failIfCoverageEmpty: true
+- task: CopyFiles@2
+  displayName: Copy Build Artifacts
+  inputs:
+    Contents: > 
+          $(System.DefaultWorkingDirectory)/target/*.jar
+    TargetFolder: $(build.artifactstagingdirectory)/SERVICE_NAME_VALUE
